@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+
+import sys
+
+sys_input = sys.argv
+
+if len(sys_input) != 4:
+    print("Please input a **3** channel RGB color")
+    exit()
+
+R = int(sys_input[1])
+G = int(sys_input[2])
+B = int(sys_input[3])
+
+def My_hex(num):
+    """将0-255的十进制数字转化为长度为2的十六进制表示"""
+    if num<0 or num > 255:
+        print("please input number between 0-255")
+        exit()
+    hex_num = hex(num)[2:]
+    expended_hex_num = '0'*(2-len(hex_num)) + hex_num
+    return expended_hex_num
+
+
+HCode = "#" + My_hex(R) + My_hex(G) + My_hex(B)
+
+print(HCode)
